@@ -113,7 +113,7 @@ namespace CrmManager
 			}
 			else
 			{
-				lblStatus.Text = $"exec time {(DateTime.Now - _waitStart).TotalSeconds.ToString("0.##")}ms";
+				lblStatus.Text = $@"exec time {(DateTime.Now - _waitStart).TotalSeconds:0.##}s";
 				Application.DoEvents();
 			}
 		}
