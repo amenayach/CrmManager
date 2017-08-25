@@ -74,12 +74,16 @@
     </Compile>
     <Compile Include="Crm\Manager.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Fluent\CrmFieldType.cs" />
+    <Compile Include="Fluent\CrmFieldAttribute.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CrmEntity.cs" />
+    <Compile Include="Models\CrmField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\QueryUC.resx">

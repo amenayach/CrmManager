@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmManager", "CrmManager\CrmManager.csproj", "{F5C2D44C-3B25-4681-916D-11F8B99C8A03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E47FB35D-FBDB-4135-B6A9-85B2DC773E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmManager.Test", "test\CrmManager.Test\CrmManager.Test.csproj", "{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{F5C2D44C-3B25-4681-916D-11F8B99C8A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C2D44C-3B25-4681-916D-11F8B99C8A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C2D44C-3B25-4681-916D-11F8B99C8A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{15934B2F-D7C0-429B-910A-F5A5CE5E1BDF} = {E47FB35D-FBDB-4135-B6A9-85B2DC773E05}
 	EndGlobalSection
 EndGlobal
