@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnExec = new System.Windows.Forms.Button();
@@ -37,11 +38,16 @@
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.getDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateCSharpClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabs.SuspendLayout();
+            this.listMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -103,6 +109,7 @@
             this.lstEntities.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstEntities.ContextMenuStrip = this.listMenuStrip;
             this.lstEntities.FormattingEnabled = true;
             this.lstEntities.Location = new System.Drawing.Point(2, 71);
             this.lstEntities.Name = "lstEntities";
@@ -156,6 +163,34 @@
             this.tabPage2.Text = "+";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // listMenuStrip
+            // 
+            this.listMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getDataToolStripMenuItem,
+            this.showFieldsToolStripMenuItem,
+            this.generateCSharpClassToolStripMenuItem});
+            this.listMenuStrip.Name = "listMenuStrip";
+            this.listMenuStrip.Size = new System.Drawing.Size(193, 92);
+            // 
+            // getDataToolStripMenuItem
+            // 
+            this.getDataToolStripMenuItem.Name = "getDataToolStripMenuItem";
+            this.getDataToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.getDataToolStripMenuItem.Text = "Get  &Data";
+            this.getDataToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // showFieldsToolStripMenuItem
+            // 
+            this.showFieldsToolStripMenuItem.Name = "showFieldsToolStripMenuItem";
+            this.showFieldsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.showFieldsToolStripMenuItem.Text = "Show &Fields";
+            // 
+            // generateCSharpClassToolStripMenuItem
+            // 
+            this.generateCSharpClassToolStripMenuItem.Name = "generateCSharpClassToolStripMenuItem";
+            this.generateCSharpClassToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.generateCSharpClassToolStripMenuItem.Text = "&Generate CSharp Class";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
+            this.listMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -189,6 +225,10 @@
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.Button btnExec;
 		private System.Windows.Forms.Label lblStatus;
-	}
+        private System.Windows.Forms.ContextMenuStrip listMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem getDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showFieldsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateCSharpClassToolStripMenuItem;
+    }
 }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmManager;
 using CrmManager.Crm;
+using CrmManager.Models;
 
 namespace CrmManager.Controls
 {
@@ -69,6 +70,11 @@ namespace CrmManager.Controls
                     grdColumn.SortMode = DataGridViewColumnSortMode.Automatic;
                 }
             }
+        }
+
+        public void GenerateCSharpClass(CrmEntity crmEntity)
+        {
+            Manager.GenerateCSharpClass(ClassOptions.FromCrmEntity(crmEntity));
         }
     }
 }

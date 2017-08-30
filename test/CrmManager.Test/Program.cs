@@ -12,7 +12,10 @@ namespace CrmManager.Test
         static void Main(string[] args)
         {
 
-            var manager = new Manager("http://52.174.35.94:81/MOE");
+            //var manager = new Manager("http://52.174.35.94:81/MOE");
+
+            var cleaned = Extensions.SplitterByUnderscore("asd zxc_qwe");
+
         }
     }
 }

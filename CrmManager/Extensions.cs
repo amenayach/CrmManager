@@ -73,6 +73,29 @@ namespace CrmManager
             return dataTable;
         }
 
+        public static string SplitterByUnderscore(this string strToSplit)
+        {
+            if (string.IsNullOrEmpty(strToSplit)) return strToSplit;
 
+            var res = CleanByChar(strToSplit, '_');
+
+            res = CleanByChar(res, ' ');
+
+            return res;
+        }
+
+        private static string CleanByChar(string strToSplit, char character)
+        {
+            var res = string.Empty;
+
+            var spl = strToSplit.Split(character);
+
+            foreach (var str in spl)
+            {
+                if (!string.IsNullOrEmpty(str))
+                    res += str.Length > 1 ? str[0].ToString().ToUpper() + str.Substring(1) : str;
+            }
+            return res;
+        }
     }
 }

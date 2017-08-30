@@ -115,5 +115,11 @@ namespace CrmManager.Crm
             }
         }
 
+        public void GenerateCSharpClass(ClassOptions classOptions)
+        {
+            var fields = GetCrmEntityFields(classOptions.InternalName);
+
+
+        }
     }
 }

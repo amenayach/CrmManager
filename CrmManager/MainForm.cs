@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmManager.Controls;
 using CrmManager.Crm;
+using CrmManager.Models;
 
 namespace CrmManager
 {
@@ -28,6 +29,7 @@ namespace CrmManager
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            //URL=http://52.174.35.94:81/MOE/; Domain=moe; Username=haitham; Password=P@ssw0rd@123;
             var url = ControlMod.InputBox(string.Empty, "Enter CRM connection string", _crmUrl);
             if (!string.IsNullOrWhiteSpace(url))
             {
@@ -111,6 +113,17 @@ namespace CrmManager
             }
         }
 
+        private void GenerateCSharpClass()
+        {
+            if (tabs.SelectedTab.Controls.Count > 0)
+            {
+                Wait();
+                var ctrl = tabs.SelectedTab.Controls[0] as QueryUC;
+                ctrl?.GenerateCSharpClass((CrmEntity)lstEntities.SelectedItem);
+                Wait(false);
+            }
+        }
+
         private void Exec()
         {
             if (tabs.SelectedTab.Controls.Count > 0)
@@ -164,6 +177,18 @@ namespace CrmManager
             if (lstEntities.SelectedItem != null && e.KeyCode == Keys.Enter)
             {
                 lstEntities_MouseDoubleClick(null, null);
+            }
+        }
+
+        private void toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sender.Equals(getDataToolStripMenuItem))
+            {
+                Exec();
+            }
+            else if (sender.Equals(showFieldsToolStripMenuItem))
+            {
+                ExecFields();
             }
         }
     }
