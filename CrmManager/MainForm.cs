@@ -115,11 +115,20 @@ namespace CrmManager
 
         private void GenerateCSharpClass()
         {
-            if (tabs.SelectedTab.Controls.Count > 0)
+            if (lstEntities.SelectedItems.Count > 0)
             {
                 Wait();
-                var ctrl = tabs.SelectedTab.Controls[0] as QueryUC;
-                ctrl?.GenerateCSharpClass((CrmEntity)lstEntities.SelectedItem);
+
+                if (string.IsNullOrWhiteSpace(CacheManager.Namespace))
+                {
+                    CacheManager.Namespace = ControlMod.InputBox("", "Please enter a namespace", CacheManager.Namespace);
+                }
+
+                foreach (object item in lstEntities.SelectedItems)
+                {
+                    _crmManager.GenerateCSharpClass(ClassOptions.FromCrmEntity((CrmEntity)item, CacheManager.Namespace));
+                }
+
                 Wait(false);
             }
         }
@@ -189,6 +198,10 @@ namespace CrmManager
             else if (sender.Equals(showFieldsToolStripMenuItem))
             {
                 ExecFields();
+            }
+            else if (sender.Equals(generateCSharpClassToolStripMenuItem))
+            {
+                GenerateCSharpClass();
             }
         }
     }

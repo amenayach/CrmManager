@@ -8,6 +8,8 @@ namespace CrmManager.Models
 {
     public class ClassOptions
     {
+        public string Namespace { get; set; }
+
         public string ClassName { get; set; }
 
         public string InternalName { get; set; }
@@ -16,13 +18,14 @@ namespace CrmManager.Models
 
         public override string ToString() => $"{InternalName} ({DisplayName})";
 
-        public static ClassOptions FromCrmEntity(CrmEntity crmEntity)
+        public static ClassOptions FromCrmEntity(CrmEntity crmEntity, string nameSpace)
         {
             return new ClassOptions
             {
-               InternalName = crmEntity.InternalName,
-               DisplayName =  crmEntity.DisplayName,
-               ClassName = crmEntity.DisplayName.SplitterByUnderscore()
+                Namespace = nameSpace,
+                InternalName = crmEntity.InternalName,
+                DisplayName = crmEntity.DisplayName,
+                ClassName = crmEntity.DisplayName.SplitterByUnderscore()
             };
         }
     }

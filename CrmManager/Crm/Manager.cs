@@ -102,11 +102,12 @@ namespace CrmManager.Crm
                 if (entityResponse?.EntityMetadata?.Attributes != null && entityResponse.EntityMetadata.Attributes.Length > 0)
                 {
                     return entityResponse.EntityMetadata.Attributes
+                        .Where(m => string.IsNullOrWhiteSpace(m.AttributeOf))
                         .Select(m => new CrmField()
                         {
                             InternalName = m.LogicalName,
                             Type = m.AttributeType,
-                            DisplayName = m.DisplayName.LocalizedLabels.FirstOrDefault(n => n.LanguageCode == 1033)?.Label
+                            DisplayName = ((entityName + "id") == m.LogicalName ? "Id" : m.DisplayName.LocalizedLabels.FirstOrDefault(n => n.LanguageCode == 1033)?.Label)
                         })
                         .OrderBy(m => m.InternalName).ToList();
                 }
@@ -117,9 +118,7 @@ namespace CrmManager.Crm
 
         public void GenerateCSharpClass(ClassOptions classOptions)
         {
-            var fields = GetCrmEntityFields(classOptions.InternalName);
-
-
+            ClassGenerator.GenerateClass(classOptions, this);
         }
     }
 }

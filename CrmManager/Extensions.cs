@@ -84,6 +84,39 @@ namespace CrmManager
             return res;
         }
 
+        public static string GetDotnetType(this AttributeTypeCode? attributeTypeCode)
+        {
+            switch (attributeTypeCode)
+            {
+                case AttributeTypeCode.BigInt:
+                    return "long";
+                case AttributeTypeCode.Boolean:
+                    return "bool";
+                case AttributeTypeCode.DateTime:
+                    return "DateTime";
+                case AttributeTypeCode.Decimal:
+                    return "decimal";
+                case AttributeTypeCode.Double:
+                    return "double";
+                case AttributeTypeCode.Integer:
+                    return "int";
+                case AttributeTypeCode.Lookup:
+                    return "Guid";
+                case AttributeTypeCode.Money:
+                    return "decimal";
+                case AttributeTypeCode.State:
+                    return "int";
+                case AttributeTypeCode.Status:
+                    return "int";
+                case AttributeTypeCode.String:
+                    return "string";
+                case AttributeTypeCode.Uniqueidentifier:
+                    return "Guid";
+                default:
+                    return "string";
+            }
+        }
+
         private static string CleanByChar(string strToSplit, char character)
         {
             var res = string.Empty;

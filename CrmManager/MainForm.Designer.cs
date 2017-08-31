@@ -34,20 +34,20 @@
             this.btnExec = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lstEntities = new System.Windows.Forms.ListBox();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.tabs = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.getDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateCSharpClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tabs.SuspendLayout();
             this.listMenuStrip.SuspendLayout();
+            this.tabs.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -119,6 +119,36 @@
             this.lstEntities.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstEntities_KeyDown);
             this.lstEntities.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEntities_MouseDoubleClick);
             // 
+            // listMenuStrip
+            // 
+            this.listMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getDataToolStripMenuItem,
+            this.showFieldsToolStripMenuItem,
+            this.generateCSharpClassToolStripMenuItem});
+            this.listMenuStrip.Name = "listMenuStrip";
+            this.listMenuStrip.Size = new System.Drawing.Size(193, 92);
+            // 
+            // getDataToolStripMenuItem
+            // 
+            this.getDataToolStripMenuItem.Name = "getDataToolStripMenuItem";
+            this.getDataToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.getDataToolStripMenuItem.Text = "Get  &Data";
+            this.getDataToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // showFieldsToolStripMenuItem
+            // 
+            this.showFieldsToolStripMenuItem.Name = "showFieldsToolStripMenuItem";
+            this.showFieldsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.showFieldsToolStripMenuItem.Text = "Show &Fields";
+            this.showFieldsToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // generateCSharpClassToolStripMenuItem
+            // 
+            this.generateCSharpClassToolStripMenuItem.Name = "generateCSharpClassToolStripMenuItem";
+            this.generateCSharpClassToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.generateCSharpClassToolStripMenuItem.Text = "&Generate CSharp Class";
+            this.generateCSharpClassToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
             // btnConnect
             // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -163,34 +193,6 @@
             this.tabPage2.Text = "+";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listMenuStrip
-            // 
-            this.listMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.getDataToolStripMenuItem,
-            this.showFieldsToolStripMenuItem,
-            this.generateCSharpClassToolStripMenuItem});
-            this.listMenuStrip.Name = "listMenuStrip";
-            this.listMenuStrip.Size = new System.Drawing.Size(193, 92);
-            // 
-            // getDataToolStripMenuItem
-            // 
-            this.getDataToolStripMenuItem.Name = "getDataToolStripMenuItem";
-            this.getDataToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.getDataToolStripMenuItem.Text = "Get  &Data";
-            this.getDataToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
-            // 
-            // showFieldsToolStripMenuItem
-            // 
-            this.showFieldsToolStripMenuItem.Name = "showFieldsToolStripMenuItem";
-            this.showFieldsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.showFieldsToolStripMenuItem.Text = "Show &Fields";
-            // 
-            // generateCSharpClassToolStripMenuItem
-            // 
-            this.generateCSharpClassToolStripMenuItem.Name = "generateCSharpClassToolStripMenuItem";
-            this.generateCSharpClassToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.generateCSharpClassToolStripMenuItem.Text = "&Generate CSharp Class";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,8 +210,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tabs.ResumeLayout(false);
             this.listMenuStrip.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}

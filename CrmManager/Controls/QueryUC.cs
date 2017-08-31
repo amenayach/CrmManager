@@ -74,7 +74,12 @@ namespace CrmManager.Controls
 
         public void GenerateCSharpClass(CrmEntity crmEntity)
         {
-            Manager.GenerateCSharpClass(ClassOptions.FromCrmEntity(crmEntity));
+            if (string.IsNullOrWhiteSpace(CacheManager.Namespace))
+            {
+                CacheManager.Namespace = ControlMod.InputBox("", "Please enter a namespace", CacheManager.Namespace);
+            }
+
+            Manager.GenerateCSharpClass(ClassOptions.FromCrmEntity(crmEntity, CacheManager.Namespace));
         }
     }
 }
