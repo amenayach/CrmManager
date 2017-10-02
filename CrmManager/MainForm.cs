@@ -30,14 +30,22 @@ namespace CrmManager
         private void btnConnect_Click(object sender, EventArgs e)
         {
             //URL=http://52.174.35.94:81/MOE/; Domain=moe; Username=haitham; Password=P@ssw0rd@123;
-            var url = ControlMod.InputBox(string.Empty, "Enter CRM connection string", _crmUrl);
-            if (!string.IsNullOrWhiteSpace(url))
+            //var url = ControlMod.InputBox(string.Empty, "Enter CRM connection string", _crmUrl);
+            //if (!string.IsNullOrWhiteSpace(url))
+            //{
+            //    _crmUrl = url;
+            //    // ReSharper disable once LocalizableElement
+            //    Text = $"CRM Manager - {_crmUrl}";
+            //    ControlMod.SetRegistryValue(ControlMod.cntConStr, _crmUrl);
+            //    _crmManager = new Manager(_crmUrl);
+            //    InitEntitiesList(true);
+            //}
+
+            var connectionString = CrmConnectionDialog.Connect();
+
+            if (connectionString.NotEmpty())
             {
-                _crmUrl = url;
-                // ReSharper disable once LocalizableElement
-                Text = $"CRM Manager - {_crmUrl}";
-                ControlMod.SetRegistryValue(ControlMod.cntConStr, _crmUrl);
-                _crmManager = new Manager(_crmUrl);
+                _crmManager = new Manager(connectionString);
                 InitEntitiesList(true);
             }
         }

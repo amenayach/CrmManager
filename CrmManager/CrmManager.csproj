@@ -67,6 +67,12 @@
   <ItemGroup>
     <Compile Include="CacheManager.cs" />
     <Compile Include="ControlMod.cs" />
+    <Compile Include="Controls\CrmConnectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CrmConnectionDialog.Designer.cs">
+      <DependentUpon>CrmConnectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\QueryUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +84,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Fluent\CrmFieldType.cs" />
     <Compile Include="Fluent\CrmFieldAttribute.cs" />
+    <Compile Include="FormBrain.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +96,9 @@
     <Compile Include="Models\CrmField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\CrmConnectionDialog.resx">
+      <DependentUpon>CrmConnectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\QueryUC.resx">
       <DependentUpon>QueryUC.cs</DependentUpon>
     </EmbeddedResource>
