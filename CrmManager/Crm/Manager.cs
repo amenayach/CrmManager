@@ -120,5 +120,10 @@ namespace CrmManager.Crm
         {
             ClassGenerator.GenerateClass(classOptions, this);
         }
+
+        public void GenerateCSharpConstants(ClassOptions classOptions)
+        {
+            ClassGenerator.GenerateConstants(classOptions, this);
+        }
     }
 }

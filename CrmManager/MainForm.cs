@@ -141,6 +141,26 @@ namespace CrmManager
             }
         }
 
+        private void GenerateCSharpConstants()
+        {
+            if (lstEntities.SelectedItems.Count > 0)
+            {
+                Wait();
+
+                if (string.IsNullOrWhiteSpace(CacheManager.Namespace))
+                {
+                    CacheManager.Namespace = ControlMod.InputBox("", "Please enter a namespace", CacheManager.Namespace);
+                }
+
+                foreach (object item in lstEntities.SelectedItems)
+                {
+                    _crmManager.GenerateCSharpConstants(ClassOptions.FromCrmEntity((CrmEntity)item, CacheManager.Namespace));
+                }
+
+                Wait(false);
+            }
+        }
+
         private void Exec()
         {
             if (tabs.SelectedTab.Controls.Count > 0)
@@ -210,6 +230,10 @@ namespace CrmManager
             else if (sender.Equals(generateCSharpClassToolStripMenuItem))
             {
                 GenerateCSharpClass();
+            }
+            else if (sender.Equals(generateCSharpConstantsToolStripMenuItem))
+            {
+                GenerateCSharpConstants();
             }
         }
     }

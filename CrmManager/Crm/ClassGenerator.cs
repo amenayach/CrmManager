@@ -49,6 +49,39 @@ namespace {classOptions.Namespace}
 
         }
 
+        public static void GenerateConstants(ClassOptions classOptions, Manager manager)
+        {
+            var fields = manager.GetCrmEntityFields(classOptions.InternalName);
+
+            if (fields.NotEmpty())
+            {
+
+                var stringBuilder = new StringBuilder();
+
+                stringBuilder.Append($@"using System;
+
+namespace {classOptions.Namespace}
+{{
+        public class {classOptions.ClassName}
+        {{
+            public const string LogicalName = ""{classOptions.InternalName}"";
+            public const string Id = ""{classOptions.InternalName}id"";");
+
+                foreach (var field in fields)
+                {
+                    stringBuilder.Append(GetFieldConstant(field));
+                }
+
+                stringBuilder.Append($@"
+        }}
+}}");
+
+                var filepath = GetFilepath(classOptions);
+                File.WriteAllText(filepath, stringBuilder.ToString());
+                Process.Start(filepath);
+            }
+        }
+
         private static string GetFilepath(ClassOptions classOptions)
         {
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $@"{classOptions.ClassName}.cs");
@@ -61,5 +94,15 @@ namespace {classOptions.Namespace}
                 public {field.Type.GetDotnetType()} {field.DisplayName.SplitterByUnderscore()} {{ get; set; }}
 ";
         }
+
+        private static string GetFieldConstant(CrmField field)
+        {
+            return $@"
+            /// <summary>
+            /// {field.Type}
+            /// </summary>
+            public const string {field.DisplayName.SplitterByUnderscore()} = ""{field.InternalName}"";";
+        }
+
     }
 }
